@@ -1,13 +1,13 @@
 
-// var colors = [
-// "rgb(255, 0, 0)",
-// "rgb(255, 255, 0)",
-// "rgb(0, 255, 0)",
-// "rgb(0, 255, 255)",
-// "rgb(0, 0, 255)",
-// "rgb(255, 0, 255)",
-// ];
+//element selector for RGB values for color we're looking for in game
+var valueR = document.getElementById("numR");
+var valueG = document.getElementById("numG");
+var valueB = document.getElementById("numB");
 
+// set RGB value we're looking for
+valueR.textContent=getRandomInt(0, 255);
+valueG.textContent=getRandomInt(0, 255);
+valueB.textContent=getRandomInt(0, 255);
 
 
 // element selector for all colored squares
