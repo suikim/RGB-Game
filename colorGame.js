@@ -3,21 +3,40 @@
 var valueR = document.getElementById("numR");
 var valueG = document.getElementById("numG");
 var valueB = document.getElementById("numB");
-
-// set RGB value we're looking for
-valueR.textContent=getRandomInt(0, 255);
-valueG.textContent=getRandomInt(0, 255);
-valueB.textContent=getRandomInt(0, 255);
-
-
-// element selector for all colored squares
+//element selector for new colors button
+var reset = document.getElementById("reset");
+//element selector for all colored squares
 var squares = document.querySelectorAll(".square");
 
-//update each square to have different color
-for (var i = 0; i < squares.length; i++) {
-	squares[i].style.backgroundColor= "rgb(" + getRandomInt(0, 255) + ", " + getRandomInt(0, 255) + ", " + getRandomInt(0, 255) + ")" ;
+//New Colors button - changes color of squares and the RGB number player is looking for
+reset.addEventListener("click", function(){
+	rgbNumber();
+	colorSquare();
+});
+
+//set RGB number when page loads
+rgbNumber();
+
+//color squares when page loads
+colorSquare();
+
+
+
+//***   Functions   ***//
+
+//set RGB value we're looking for
+function rgbNumber(){
+	valueR.textContent=getRandomInt(0, 255);
+	valueG.textContent=getRandomInt(0, 255);
+	valueB.textContent=getRandomInt(0, 255);
 }
 
+//update each square to have different color
+function colorSquare(){
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor= "rgb(" + getRandomInt(0, 255) + ", " + getRandomInt(0, 255) + ", " + getRandomInt(0, 255) + ")" ;
+	}
+}
 
 //random integer between 2 values - from MDN website
 function getRandomInt(min, max) {
