@@ -9,10 +9,7 @@ var reset = document.getElementById("reset");
 var squares = document.querySelectorAll(".square");
 
 //New Colors button - changes color of squares and the RGB number player is looking for
-reset.addEventListener("click", function(){
-	rgbNumber();
-	colorSquare();
-});
+reset.addEventListener("click", function(){ rgbNumber(); colorSquare(); });
 
 //set RGB number when page loads
 rgbNumber();
@@ -34,7 +31,8 @@ function rgbNumber(){
 //update each square to have different color
 function colorSquare(){
 	for (var i = 0; i < squares.length; i++) {
-		squares[i].style.backgroundColor= "rgb(" + getRandomInt(0, 255) + ", " + getRandomInt(0, 255) + ", " + getRandomInt(0, 255) + ")" ;
+		squares[i].style.backgroundColor= "rgb(" + getRandomInt(0, 255) + ", " + 
+		getRandomInt(0, 255) + ", " + getRandomInt(0, 255) + ")" ;
 	}
 }
 
@@ -44,5 +42,3 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
-
-//later in development, we'll want to generate numbers to be more far apart or closer together depending on difficulty
