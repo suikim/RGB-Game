@@ -1,0 +1,35 @@
+body{
+	background: #232323;
+	color: white;
+}
+
+/*h1 {
+	color: white;
+}
+
+h2 {
+	color: white;
+}*/
+
+#header{
+	margin: 0 auto;
+	max-width: 550px;
+}
+
+#settingBar{
+	margin: 0 auto;
+	max-width: 550px; 
+}
+
+.square{
+	width: 30%;
+	padding-bottom: 30%;
+	background: purple;
+	float: left;
+	margin: 1.6%;
+}
+
+#container{
+	margin: 0 auto;
+	max-width: 600px;
+}
