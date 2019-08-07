@@ -9,7 +9,6 @@ var reset = document.getElementById("reset");
 var squares = document.querySelectorAll(".square");
 
 
-
 //set RGB number when page loads
 rgbNumber();
 //color squares when page loads
