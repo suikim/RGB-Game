@@ -7,6 +7,8 @@ var valueB = document.getElementById("numB");
 var reset = document.getElementById("reset");
 //element selector for all colored squares
 var squares = document.querySelectorAll(".square");
+//element selector for incorrect/correct message
+var alert = document.getElementById("message");
 
 
 //set RGB number when page loads
@@ -17,13 +19,27 @@ colorSquare(valueR.textContent, valueG.textContent, valueB.textContent);
 
 //*** Event Listeners   ***//
 //New Colors button - changes color of squares and the RGB number player is looking for
-reset.addEventListener("click", function(){ rgbNumber(); colorSquare(valueR.textContent, valueG.textContent, valueB.textContent); });
+reset.addEventListener("click", function(){ 
+	rgbNumber(); 
+	colorSquare(valueR.textContent, valueG.textContent, valueB.textContent); 
+	reset.textContent="New Colors";
+	message.textContent="";
+});
+
 //check is clicked square is correct one
 for (var i = 0; i < squares.length; i++) {
 	(function(index) {
 		squares[i].addEventListener("click", function(){
 			if( squares[index].style.backgroundColor == writeRGB(valueR.textContent, valueG.textContent, valueB.textContent) ){
-				console.log("correct!");
+				//console.log("correct!");
+				message.textContent = "Correct!"
+				reset.textContent="Try Again?";
+			}
+			else{
+				//console.log("incorrect");
+				message.textContent="Incorrect!"
+				//squares[index].classList.add("addFadeBlack");
+				squares[index].style.backgroundColor = "#232323";
 			}
 		});
 	})(i);
