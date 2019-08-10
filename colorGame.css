@@ -41,4 +41,5 @@ h2 {
 .addFadeBlack{
 	animation-name: fadeBlack;
 	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }

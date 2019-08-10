@@ -9,6 +9,9 @@ var reset = document.getElementById("reset");
 var squares = document.querySelectorAll(".square");
 //element selector for incorrect/correct message
 var alert = document.getElementById("message");
+//boolean value to check if player selected right color
+var won = false;
+
 
 
 //set RGB number when page loads
@@ -18,12 +21,16 @@ colorSquare(valueR.textContent, valueG.textContent, valueB.textContent);
 
 
 //*** Event Listeners   ***//
-//New Colors button - changes color of squares and the RGB number player is looking for
+//New Colors button - changes color of squares and the RGB number player is looking for, reset won boolean to false
 reset.addEventListener("click", function(){ 
 	rgbNumber(); 
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].classList.remove("addFadeBlack");
+	}
 	colorSquare(valueR.textContent, valueG.textContent, valueB.textContent); 
 	reset.textContent="New Colors";
 	message.textContent="";
+	won = false;
 });
 
 //check is clicked square is correct one
@@ -31,21 +38,21 @@ for (var i = 0; i < squares.length; i++) {
 	(function(index) {
 		squares[i].addEventListener("click", function(){
 			if( squares[index].style.backgroundColor == writeRGB(valueR.textContent, valueG.textContent, valueB.textContent) ){
-				//console.log("correct!");
 				message.textContent = "Correct!"
+				won = true;
 				reset.textContent="Try Again?";
 			}
 			else{
-				//console.log("incorrect");
-				message.textContent="Incorrect!"
-				//squares[index].classList.add("addFadeBlack");
-				squares[index].style.backgroundColor = "#232323";
+				if(won == false){
+					message.textContent="Incorrect!"
+					squares[index].classList.add("addFadeBlack");
+					//squares[index].style.backgroundColor = "#232323";
+				}
 			}
 		});
 	})(i);
 }
 
- 
 
 //***   Functions   ***//
 
