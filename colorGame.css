@@ -8,7 +8,12 @@ body{
 	max-width: 550px;
 }
 
-#settingBar{
+/*#settingBar{
+	margin: 0 auto;
+	max-width: 550px; 
+}*/
+
+.btn-toolbar{
 	margin: 0 auto;
 	max-width: 550px; 
 }
