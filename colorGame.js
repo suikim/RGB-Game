@@ -83,15 +83,19 @@ function squareClickable(){
 		(function(index) {
 			squares[i].addEventListener("click", function(){
 				if( squares[index].style.backgroundColor == writeRGB(valueR.textContent, valueG.textContent, valueB.textContent) ){
-					message.textContent = "Correct!";
+					alert.textContent = "Correct!";
+					alert.style.color=writeRGB(valueR.textContent, valueG.textContent, valueB.textContent);
 					won = true;
 					reset.textContent="Try Again?";
+					for (var j = 0; j < squares.length; j++){
+						squares[j].classList.remove("addFadeBlack");
+						squares[j].style.backgroundColor = writeRGB(valueR.textContent, valueG.textContent, valueB.textContent);
+					}
 				}
 				else{
 					if(won == false){
-						message.textContent="Incorrect!"
+						alert.textContent="Incorrect!";
 						squares[index].classList.add("addFadeBlack");
-						//squares[index].style.backgroundColor = "#232323";
 					}
 				}
 			});
@@ -116,6 +120,7 @@ function resetValues(){
 	rgbNumber();
 	colorSquare(valueR.textContent, valueG.textContent, valueB.textContent); 
 	reset.textContent="New Colors";
-	message.textContent="";
+	alert.textContent="";
+	alert.style.color="white";
 	won = false;
 }
